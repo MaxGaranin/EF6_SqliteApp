@@ -2,10 +2,10 @@
 using System.Data.Entity.Migrations;
 using System.Data.SQLite;
 using System.Data.SQLite.EF6;
-using ConsoleApp1.Entities;
-using ConsoleApp1.Migrations;
+using ConsoleApp.Entities;
+using ConsoleApp.Migrations;
 
-namespace ConsoleApp1.DataAccess
+namespace ConsoleApp.DataAccess
 {
     public class IpaDbContext : DbContext
     {
@@ -20,15 +20,15 @@ namespace ConsoleApp1.DataAccess
             {
                 // Надо потестировать эти инициализаторы и ручной запуск миграций
 
-//                Database.SetInitializer(new DropCreateDatabaseAlways<IpaDbContext>());
+                Database.SetInitializer(new DropCreateDatabaseAlways<IpaDbContext>());
 
-//                Configuration config = new Configuration();
-//                DbMigrator migrator = new DbMigrator(config);
-//
-//                foreach (string s in migrator.GetPendingMigrations())
-//                {
-//                    migrator.Update(s);
-//                }
+                Configuration config = new Configuration();
+                DbMigrator migrator = new DbMigrator(config);
+
+                foreach (string s in migrator.GetPendingMigrations())
+                {
+                    migrator.Update(s);
+                }
             }
 
             Configuration.AutoDetectChangesEnabled = false;

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{81FEF97C-5895-4B1A-A61A-2F639C397985}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleApp1</RootNamespace>
-    <AssemblyName>ConsoleApp1</AssemblyName>
+    <RootNamespace>ConsoleApp</RootNamespace>
+    <AssemblyName>ConsoleApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -72,9 +72,9 @@
     <Compile Include="Entities\Flow.cs" />
     <Compile Include="Entities\FluidModel.cs" />
     <Compile Include="Entities\OilFlowState.cs" />
-    <Compile Include="Migrations\201909091120558_Init.cs" />
-    <Compile Include="Migrations\201909091120558_Init.Designer.cs">
-      <DependentUpon>201909091120558_Init.cs</DependentUpon>
+    <Compile Include="Migrations\202001291312492_Init.cs" />
+    <Compile Include="Migrations\202001291312492_Init.Designer.cs">
+      <DependentUpon>202001291312492_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -85,8 +85,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909091120558_Init.resx">
-      <DependentUpon>201909091120558_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001291312492_Init.resx">
+      <DependentUpon>202001291312492_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

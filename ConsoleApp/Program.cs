@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ConsoleApp1.DataAccess;
-using ConsoleApp1.Entities;
+using ConsoleApp.DataAccess;
+using ConsoleApp.Entities;
 
-namespace ConsoleApp1
+namespace ConsoleApp
 {
     public class Program
     {
@@ -18,7 +15,7 @@ namespace ConsoleApp1
                 var sw = new Stopwatch();
                 sw.Start();
 
-                for (int i = 0; i < 5000; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     var flow = new Flow
                     {

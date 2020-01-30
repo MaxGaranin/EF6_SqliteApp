@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace ConsoleApp1.Entities
+namespace ConsoleApp.Entities
 {
     [DataContract(Namespace = "IPA")]
     public class FluidModel
