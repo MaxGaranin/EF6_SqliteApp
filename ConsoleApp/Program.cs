@@ -15,7 +15,7 @@ namespace ConsoleApp
                 var sw = new Stopwatch();
                 sw.Start();
 
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 5000; i++)
                 {
                     var flow = new Flow
                     {
