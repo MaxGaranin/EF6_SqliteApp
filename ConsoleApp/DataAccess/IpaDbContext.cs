@@ -11,30 +11,38 @@ namespace ConsoleApp.DataAccess
     {
         public static string DatabaseConnectionString = @"d:\work835\Temp\test.db";
 
-        public IpaDbContext() : base(CreateConnection(DatabaseConnectionString), false)
+        static IpaDbContext()
         {
             var initializer = new MigrateDatabaseToLatestVersion<IpaDbContext, Configuration>(true);
-            initializer.InitializeDatabase(this);
+            Database.SetInitializer(initializer);
+        }
 
+        public IpaDbContext() : base(CreateConnection(DatabaseConnectionString), false)
+        {
+            // В случае SQLite пустая база все равно будет создана в методе CreateConnection
             if (!Database.Exists())
             {
-                // Надо потестировать эти инициализаторы и ручной запуск миграций
-
-                Database.SetInitializer(new DropCreateDatabaseAlways<IpaDbContext>());
-
-                Configuration config = new Configuration();
-                DbMigrator migrator = new DbMigrator(config);
-
-                foreach (string s in migrator.GetPendingMigrations())
-                {
-                    migrator.Update(s);
-                }
+                // Создание базы и ручной запуск миграций
+                CreateNewDatabaseWithMigrations();
             }
 
             Configuration.AutoDetectChangesEnabled = false;
         }
 
         public DbSet<Flow> Flows { get; set; }
+
+        private static void CreateNewDatabaseWithMigrations()
+        {
+            Database.SetInitializer(new DropCreateDatabaseAlways<IpaDbContext>());
+
+            var config = new Configuration();
+            var migrator = new DbMigrator(config);
+
+            foreach (var migrationName in migrator.GetPendingMigrations())
+            {
+                migrator.Update(migrationName);
+            }
+        }
 
         private static SQLiteConnection CreateConnection(string path)
         {
