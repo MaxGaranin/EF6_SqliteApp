@@ -15,7 +15,7 @@ namespace ConsoleApp
                 var sw = new Stopwatch();
                 sw.Start();
 
-                for (int i = 0; i < 5000; i++)
+                for (int i = 0; i < 1500; i++)
                 {
                     var flow = new Flow
                     {
@@ -36,10 +36,10 @@ namespace ConsoleApp
                 dbContext.SaveChanges();
 
                 sw.Stop();
-                Console.WriteLine($"Elapsed: {sw.Elapsed}");
+                Console.WriteLine($@"Elapsed: {sw.Elapsed}");
             }
 
-            Console.WriteLine("Done!");
+            Console.WriteLine(@"Done!");
             Console.ReadLine();
         }
     }
